@@ -4,10 +4,6 @@ UnBundle 'jistr/vim-nerdtree-tabs'
 UnBundle 'scrooloose/syntastic'
 UnBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 
-" I'd like to keep this but it doesn't play nice with
-" some of the escape key mappings
-" UnBundle 'spf13/vim-autoclose'
-
 " do not highlight the current line
 set nocursorline
 
