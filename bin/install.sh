@@ -4,6 +4,7 @@
 
 # clone the repo down
 rm -rf ~/.dotfiles
+rm -rf ~/.oh-my-zsh
 git clone git@github.com:Techwraith/dotfiles.git ~/.dotfiles
 
 # install oh-my-zsh
