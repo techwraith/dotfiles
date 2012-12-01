@@ -7,7 +7,7 @@ export ZSH_THEME="zen"
 
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git node npm git-flow vagrant github jake)
+plugins=(git node npm git-flow vagrant github jake-node autojump brew osx)
 
 source $ZSH/oh-my-zsh.sh
 
