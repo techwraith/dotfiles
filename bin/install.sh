@@ -28,4 +28,4 @@ ln -sf ~/.dotfiles/vim/.vimrc.bundles.local ~/.vimrc.bundles.local
 # vim +BundleInstall! +BundleClean! +qall
 
 # source the shits
-soruce ~/.zshrc
+source ~/.zshrc
