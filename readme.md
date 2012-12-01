@@ -4,7 +4,7 @@ A collection of dotfiles for zsh, vim, and osx that can be reused, customised an
 ## installation
 
 ```
-  $ curl -L https://raw.github.com/Techwraith/dotfiles/master/bin/install.sh | sh && stty sane
+  $ curl -L https://raw.github.com/Techwraith/dotfiles/master/bin/install.sh | sh && reset
 ```
 
 ## Vision
