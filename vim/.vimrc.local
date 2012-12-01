@@ -1,0 +1,35 @@
+" Unbundle some stuff that comes with spf13
+UnBundle 'scrooloose/nerdtree'
+UnBundle 'jistr/vim-nerdtree-tabs'
+UnBundle 'scrooloose/syntastic'
+UnBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+
+" I'd like to keep this but it doesn't play nice with
+" some of the escape key mappings
+UnBundle 'Townk/vim-autoclose'
+
+" do not highlight the current line
+set nocursorline
+
+" set up some solarized defaults
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
+let g:solarized_hitrail=1
+set background=dark
+colorscheme solarized
+
+" Set up my editor's colors
+hi LineNr ctermbg=0
+hi TabLine ctermbg=0
+hi TabLineSel ctermbg=230 ctermfg=245
+hi TabLineFill ctermbg=0
+
+" use 2 spaces for tabs
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set numberwidth=4
+
+" toggle number modes
+nnoremap <leader>n :NumbersToggle<CR>
