@@ -22,4 +22,56 @@ ln -sf ~/.dotfiles/vim/.vimrc.local ~/.vimrc.local
 ln -sf ~/.dotfiles/vim/.vimrc.bundles.local ~/.vimrc.bundles.local
 
 # install spf13
-curl https://raw.github.com/spf13/spf13-vim/3.0/bootstrap.sh -L -o - | sh
+# curl https://raw.github.com/spf13/spf13-vim/3.0/bootstrap.sh -L -o - | sh
+
+endpath="$HOME/.spf13-vim-3"
+
+warn() {
+    echo "$1" >&2
+}
+
+die() {
+    warn "$1"
+    exit 1
+}
+
+lnif() {
+    if [ ! -e $2 ] ; then
+        ln -s $1 $2
+    fi
+}
+
+echo "Thanks for installing spf13-vim\n"
+
+# Backup existing .vim stuff
+echo "backing up current vim config\n"
+today=`date +%Y%m%d`
+for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && [ ! -L $i ] && mv $i $i.$today; done
+
+
+if [ ! -e $endpath/.git ]; then
+    echo "cloning spf13-vim\n"
+    git clone --recursive -b 3.0 http://github.com/spf13/spf13-vim.git $endpath
+else
+    echo "updating spf13-vim\n"
+    cd $endpath && git pull
+fi
+
+
+echo "setting up symlinks"
+lnif $endpath/.vimrc $HOME/.vimrc<Plug>(neocomplcache_start_auto_complete)
+lnif $endpath/.vimrc.fork $HOME/.vimrc.fork
+lnif $endpath/.vimrc.bundles $HOME/.vimrc.bundles
+lnif $endpath/.vimrc.bundles.fork $HOME/.vimrc.bundles.fork
+lnif $endpath/.vim $HOME/.vim
+if [ ! -d $endpath/.vim/bundle ]; then
+    mkdir -p $endpath/.vim/bundle<Plug>(neocomplcache_start_auto_complete)
+fi
+
+if [ ! -e $HOME/.vim/bundle/vundle ]; then
+    echo "Installing Vundle"
+    git clone http://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
+fi
+
+echo "update/install plugins using Vundle"
+vim +BundleInstall! +BundleClean +qall
