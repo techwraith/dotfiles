@@ -51,3 +51,4 @@ These are my personal dotfiles, but I've purposely made it generic so that anyon
 - Add a minimal .osx that only get's run on Macs
 - Create a system to automatically install/update: vim, node, mongodb, redis, postgres, riak, jake, geddy, etc.
 - figure out why I need stty sane in the install command
+- make this work on windows (for the things that can)
