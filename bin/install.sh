@@ -29,3 +29,4 @@ vim +BundleInstall! +BundleClean! +qall
 
 # source the shits
 source ~/.zshrc
+stty sane
