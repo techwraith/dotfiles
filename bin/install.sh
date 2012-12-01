@@ -3,6 +3,7 @@
 #
 
 # clone the repo down
+rm -rf ~/.dotfiles
 git clone git@github.com:Techwraith/dotfiles.git ~/.dotfiles
 
 # install oh-my-zsh
@@ -23,4 +24,4 @@ ln -sf ~/.dotfiles/vim/.vimrc.bundles.local ~/.vimrc.bundles.local
 
 # install spf13
 curl https://raw.github.com/spf13/spf13-vim/3.0/bootstrap.sh -L -o - | sh
-vim +BundleInstall! +BundleClean +qall
+vim +BundleInstall! +BundleClean! +qall
