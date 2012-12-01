@@ -49,6 +49,7 @@ These are my personal dotfiles, but I've purposely made it generic so that anyon
 #### Roadmap
 
 - Add a minimal .osx that only get's run on Macs
-- Create a system to automatically install/update: vim, node, mongodb, redis, postgres, riak, jake, geddy, etc.
+- Create a system to automatically install/update: iterm2, vim, node, mongodb, redis, postgres, riak, jake, geddy, etc.
+- automatically configure iTerm2 to use Solarized
 - figure out why I need stty sane in the install command
 - make this work on windows (for the things that can)
