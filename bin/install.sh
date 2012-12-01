@@ -2,37 +2,6 @@
 # Run this script to get set up
 #
 
-# back up all files that we'll be overwriting:
-#
-#  .zsh.backup.{{timestamp}}
-#    .oh-my-zsh
-#    .zshrc
-#    .zsh_aliases
-#    .zsh_exports
-#    .zsh_functions
-#
-#  .vim.backup.{{timestamp}}
-#    .vim
-#    .vimrc
-#    .vimrc.local
-#    .vimrc.bundles.local
-#
-
-# ZSH
-mkdir -p ~/.zsh.backup
-mv ~/.oh-my-zsh ~/.zsh.backup
-mv ~/zshrc ~/.zsh.backup
-mv ~/.zsh_aliases ~/.zsh.backup
-mv ~/.zsh_exports ~/.zsh.backup
-mv ~/.zsh_functions ~/.zsh.backup
-
-# VIM
-mkdir -p ~/.vim.backup
-mv ~/.vim ~/.vim.backup
-mv ~/.vimrc ~/.vim.backup
-mv ~/.vimrc.local ~/.vim.backup
-mv ~/.vimrc.bundles.local ~/.vim.backup
-
 # clone the repo down
 git clone git@github.com:Techwraith/dotfiles.git ~/.dotfiles
 
