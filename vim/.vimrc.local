@@ -8,6 +8,7 @@ UnBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 set nocursorline
 
 " set up some solarized defaults
+let g:solarized_termcolors=16
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 let g:solarized_hitrail=1
