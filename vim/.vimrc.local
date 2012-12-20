@@ -32,5 +32,8 @@ set softtabstop=2
 set expandtab
 set numberwidth=4
 
+" ctrlp stuff
+set wildignore+=node_modules
+
 " toggle number modes
 nnoremap <leader>n :NumbersToggle<CR>
