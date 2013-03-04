@@ -1,3 +1,6 @@
+" Hack for Mountain Lion Python
+let $PYTHONHOME='/System/Library/Frameworks/Python.framework/Versions/Current'
+
 " Unbundle some stuff that comes with spf13
 UnBundle 'scrooloose/nerdtree'
 UnBundle 'jistr/vim-nerdtree-tabs'
