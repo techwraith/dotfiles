@@ -25,6 +25,10 @@ hi TabLineSel ctermbg=230 ctermfg=245
 hi TabLineFill ctermbg=0
 hi CursorLine ctermbg=0
 
+" Set up git gutter's colors
+let g:gitgutter_sign_column_always = 1
+highlight clear SignColumn
+
 " remove default guide colors
 let g:indent_guides_auto_colors = 0
 
