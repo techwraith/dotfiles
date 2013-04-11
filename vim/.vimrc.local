@@ -12,18 +12,12 @@ set nocursorline
 
 " set up some solarized defaults
 let g:solarized_termcolors=16
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-let g:solarized_hitrail=1
 set background=dark
 colorscheme solarized
 
 " Set up my editor's colors
-hi LineNr ctermbg=0
-hi TabLine ctermbg=0
-hi TabLineSel ctermbg=230 ctermfg=245
-hi TabLineFill ctermbg=0
-hi CursorLine ctermbg=0
+let g:Powerline_theme='skwp'
+let g:Powerline_colorscheme='skwp'
 
 " Set up git gutter's colors
 let g:gitgutter_sign_column_always = 1
@@ -44,3 +38,15 @@ set wildignore+=node_modules
 
 " toggle number modes
 nnoremap <leader>n :NumbersToggle<CR>
+
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
+
+set laststatus=2 " Always display the statusline in all windows
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
