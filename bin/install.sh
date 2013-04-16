@@ -1,28 +1,53 @@
 #
 # Run this script to get set up
 #
+set -e
 
-# clone the repo down
-rm -rf ~/.dotfiles
-rm -rf ~/.oh-my-zsh
-git clone git@github.com:Techwraith/dotfiles.git ~/.dotfiles
+dotfiles="${HOME}/.dotfiles"
+ohmyzsh="${HOME}/.oh-my-zsh"
 
-# install oh-my-zsh
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+# Ensure Vim, Curl, and Git are installed
+if [[ ! -e "$(which vim)" ]]; then
+  echo "Vim is required to install the dotfiles"
+  exit 1
+fi
 
-# install custom zsh theme
-ln -s ~/.dotfiles/zsh/zen.zsh-theme ~/.oh-my-zsh/themes/zen.zsh-theme
+if [[ ! -e "$(which curl)" ]]; then
+  echo "Curl is required to install the dotfiles"
+  exit 1
+fi
 
-# install custom zshrc and friends
-ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
-ln -sf ~/.dotfiles/zsh/.zsh_aliases ~/.zsh_aliases
-ln -sf ~/.dotfiles/zsh/.zsh_exports ~/.zsh_exports
-ln -sf ~/.dotfiles/zsh/.zsh_functions ~/.zsh_functions
+if [[ ! -e "$(which git)" ]]; then
+  echo "Git is required to install the dotfiles"
+  exit 1
+fi
 
-# load vimrc.local and vimrc.bundles.local
-ln -sf ~/.dotfiles/vim/.vimrc.local ~/.vimrc.local
-ln -sf ~/.dotfiles/vim/.vimrc.bundles.local ~/.vimrc.bundles.local
+# Create backup of old directories if they exist
+if [[ -d "${dotfiles}" ]]; then
+  mv -f "${dotfiles}" "${dotfiles}_backup"
+  echo "Created backup of ${dotfiles} to ${dotfiles}_backup"
+fi
 
-# install spf13
-curl https://raw.github.com/spf13/spf13-vim/3.0/bootstrap.sh -L | sh
+if [[ -d "${ohmyzsh}" ]]; then
+  mv -f "${ohmyzsh}" "${ohmyzsh}_backup"
+  echo "Created backup of ${ohmyzsh} to ${ohmyzsh}_backup"
+fi
+
+# Install dotfiles and oh-my-zsh
+git clone git@github.com:Techwraith/dotfiles.git "${dotfiles}"
+curl -L -# https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
+# Link ZSH files
+ln -sf "${dotfiles}/zsh/zen.zsh-theme" "${ohmyzsh}/themes/zen.zsh-theme"
+ln -sf "${dotfiles}/zsh/.zshrc" "${HOME}/.zshrc"
+ln -sf "${dotfiles}/zsh/.zsh_aliases" "${HOME}/.zsh_aliases"
+ln -sf "${dotfiles}/zsh/.zsh_exports" "${HOME}/.zsh_exports"
+ln -sf "${dotfiles}/zsh/.zsh_functions" "${HOME}/.zsh_functions"
+
+# Link Vim files
+ln -sf "${dotfiles}/vim/.vimrc.local" "${HOME}/.vimrc.local"
+ln -sf "${dotfiles}/vim/.vimrc.bundles.local" "${HOME}/.vimrc.bundles.local"
+
+# Install spf13 and install bundles
+curl -L -# https://raw.github.com/spf13/spf13-vim/3.0/bootstrap.sh | sh
 vim +BundleInstall! +BundleClean! +qall
