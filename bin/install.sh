@@ -7,28 +7,28 @@ dotfiles="${HOME}/.dotfiles"
 ohmyzsh="${HOME}/.oh-my-zsh"
 
 # Ensure Vim, Curl, and Git are installed
-if [[ ! -e "$(which vim)" ]]; then
+if [ ! -e "$(which vim)" ]; then
   echo "Vim is required to install the dotfiles"
   exit 1
 fi
 
-if [[ ! -e "$(which curl)" ]]; then
+if [ ! -e "$(which curl)" ]; then
   echo "Curl is required to install the dotfiles"
   exit 1
 fi
 
-if [[ ! -e "$(which git)" ]]; then
+if [ ! -e "$(which git)" ]; then
   echo "Git is required to install the dotfiles"
   exit 1
 fi
 
 # Create backup of old directories if they exist
-if [[ -d "${dotfiles}" ]]; then
+if [ -d "${dotfiles}" ]; then
   mv -f "${dotfiles}" "${dotfiles}_backup"
   echo "Created backup of ${dotfiles} to ${dotfiles}_backup"
 fi
 
-if [[ -d "${ohmyzsh}" ]]; then
+if [ -d "${ohmyzsh}" ]; then
   mv -f "${ohmyzsh}" "${ohmyzsh}_backup"
   echo "Created backup of ${ohmyzsh} to ${ohmyzsh}_backup"
 fi
