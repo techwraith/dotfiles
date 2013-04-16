@@ -1,8 +1,6 @@
 #
 # Run this script to get set up
 #
-set -e
-
 dotfiles="${HOME}/.dotfiles"
 ohmyzsh="${HOME}/.oh-my-zsh"
 
@@ -50,4 +48,3 @@ ln -sf "${dotfiles}/vim/.vimrc.bundles.local" "${HOME}/.vimrc.bundles.local"
 
 # Install spf13 and install bundles
 curl -L -# https://raw.github.com/spf13/spf13-vim/3.0/bootstrap.sh | sh
-vim +BundleInstall! +BundleClean! +qall
