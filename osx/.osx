@@ -25,7 +25,7 @@ defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 # Set highlight color to green
-defaults write NSGlobalDomain AppleHighlightColor -string '0.764700 0.976500 0.568600'
+defaults write NSGlobalDomain AppleHighlightColor -string '0.930000 0.910000 0.840000'
 
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
