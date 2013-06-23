@@ -42,6 +42,7 @@ alias gcd="git checkout develop"
 alias gcm="git checkout master"
 alias gmd="git merge develop"
 alias undopush="git push -f origin HEAD^:master"
+alias gll="git log origin/master..master"
 
 #misc
 alias rr="rm -rf"

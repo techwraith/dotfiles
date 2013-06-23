@@ -12,6 +12,8 @@ export MANPAGER="less -X"
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
 
+export PATH=$PATH:/usr/local/sbin/
+
 # load work exports
 if [ -f ~/.zsh_exports.work ]; then
   source ~/.zsh_exports.work
